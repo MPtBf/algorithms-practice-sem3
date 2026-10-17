@@ -1,9 +1,10 @@
 """
 Построение графиков для practice-01 (QuickSort) из results/benchmark_results.csv.
 
-ЗАПУСК (из каталога practice-01):
-    python plot.py [путь/к/benchmark_results.csv]
-По умолчанию читает results/benchmark_results.csv; PNG сохраняются рядом с CSV.
+ЗАПУСК (можно из любого каталога, например из корня репозитория):
+    python practice-01/plot.py [путь/к/benchmark_results.csv]
+По умолчанию читает results/benchmark_results.csv рядом со скриптом;
+PNG всегда сохраняются рядом с CSV.
 
 -------------------------------------------------------------------------------
 ПОЧЕМУ НА ГРАФИКАХ ПРЯМЫЕ, А НЕ КРИВЫЕ
@@ -63,8 +64,11 @@ from matplotlib.ticker import FormatStrFormatter
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-# Путь к CSV: первый аргумент командной строки или значение по умолчанию
-CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join("results", "benchmark_results.csv")
+# Путь к CSV: первый аргумент командной строки или значение по умолчанию.
+# По умолчанию путь отсчитывается от КАТАЛОГА СКРИПТА, а не от текущего каталога —
+# тогда `python practice-01/plot.py` работает из корня репозитория и откуда угодно.
+_BASE = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else os.path.join(_BASE, "results", "benchmark_results.csv")
 # PNG сохраняются рядом с CSV (поэтому при ручном указании пути картинки попадут в его каталог)
 OUT_DIR = os.path.dirname(CSV_PATH) or "."
 

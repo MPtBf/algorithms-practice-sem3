@@ -12,12 +12,25 @@ JDK 21 · Maven · Python 3.10+ (только для графиков)
 
 ## Быстрый старт
 
+Все команды выполняются **из корня репозитория**.
+
+Тесты всех практик:
+
 ```bash
-mvn test                          # тесты всех практик
-mvn -pl practice-01 exec:exec     # замеры -> practice-01/results/benchmark_results.csv
-cd practice-01
-pip install -r requirements.txt   # однократно, только для графиков
-python plot.py                    # 4 графика -> results/*.png
+mvn test
+```
+
+Замеры quicksort (пишет CSV в `practice-01/results/`):
+
+```bash
+mvn -pl practice-01 compile exec:exec
+```
+
+Графики (нужен Python; зависимости ставятся один раз):
+
+```bash
+pip install -r practice-01/requirements.txt
+python practice-01/plot.py
 ```
 
 Подробности каждой практики — в её `README.md`.
