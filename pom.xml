@@ -14,6 +14,7 @@
 
     <modules>
         <module>practice-01</module>
+        <module>practice-02</module>
     </modules>
 
     <properties>

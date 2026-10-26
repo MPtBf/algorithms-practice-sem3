@@ -5,6 +5,7 @@
 | Практика | Тема | Итог |
 |---|---|---|
 | [practice-01](practice-01/) | QuickSort: O(n log n) vs O(n²) на замерах | ✅ теория подтверждена, графики в `practice-01/results/` |
+| [practice-02](practice-02/) | Сортировки: radix / counting / bucket | ✅ 123 теста |
 
 ## Требования
 
